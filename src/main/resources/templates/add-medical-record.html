@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Medical Record</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+    <h1>Add Medical Record</h1>
+    <hr>
+
+    <form action="#" th:action="@{/pacients/medicalRecords/saveRecord/{medicalRecordsForCnp}(medicalRecordsForCnp=${param.recordsForCnp})}" th:object="${medicalRecord}"
+          method="POST">
+        <input type="text" name="date" value="date" th:value="${localDate}"
+               class="form-control mb-4 col-4" readonly/>
+        <input type="text" th:field="*{diagnosis}" placeholder="Diagnosis"
+               class="form-control mb-4 col-4">
+        <textarea name="news_content" rows="10" cols="80" th:field="*{treatment}" placeholder="Treatment"
+                  class="form-control mb-4 col-4"></textarea>
+
+        <button type="submit" th:href="@{/pacients/medicalRecords(recordsForCnp= ${param.recordsForCnp}, firstName= ${param.firstName},
+                lastName = ${param.lastName})}" class="btn btn-info col-2">Save
+            Medical Record</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/pacients}"> Back to Pacients List</a>
+</div>
+</body>
+</html>

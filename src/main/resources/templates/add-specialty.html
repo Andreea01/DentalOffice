@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Specialty</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+    <h1>Add Specialty</h1>
+    <hr>
+
+    <form action="#" th:action="@{/admin/saveSpecialty}" th:object="${specialty}"
+          method="POST">
+        <input type="text" th:field="*{specialtyName}" placeholder="Specialty Name"
+               class="form-control mb-4 col-4">
+        <button type="submit" th:href="@{/admin}" class="btn btn-info col-2">Save
+            Specialty</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/admin}"> Back to Admin Page</a>
+</div>
+</body>
+</html>
